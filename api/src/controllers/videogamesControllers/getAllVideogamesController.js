@@ -21,7 +21,7 @@ const getAllVideogamesController= async(req,res)=>{
                     
                     idApi:game.id,
                     name:game.name,
-                    description:"",
+                    description:game.slug,
                     platforms:game.platforms?.map((p)=>p.platform.name),
                     image:game.background_image,
                     launchDate:game.released,
