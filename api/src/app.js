@@ -2,11 +2,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const routes = require('./routes/index.js');
+const mainRouter = require('./routes/mainRouter.js');
 
 require('./db.js');
 
-const server = express();
+const server = express(); 
 
 server.name = 'API';
 
@@ -22,7 +22,8 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
+server.use('/', mainRouter);              //!Dirige las req al index de rutas
+
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
