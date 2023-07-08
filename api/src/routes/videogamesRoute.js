@@ -5,15 +5,16 @@ const {getVideogamesById}=require('../controllers/videogamesControllers/getVideo
 const {getVideogamesByName}=require('../controllers/videogamesControllers/getVideogamesByName');
 const videogamesRouter=Router();
 
-videogamesRouter.get('/name?',getVideogamesByName);
-videogamesRouter.get('/:idVideogame',getVideogamesById);
+
 videogamesRouter.get('/',getAllVideogamesController);
+videogamesRouter.get('/',getVideogamesByName);
+
+videogamesRouter.get('/:idVideogame',getVideogamesById);
+
 videogamesRouter.post('/',(req,res)=>{
 
 })
 
-videogamesRouter.post('/',(req,res)=>{
 
-})
 
 module.exports =videogamesRouter;
