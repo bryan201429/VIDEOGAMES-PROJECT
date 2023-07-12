@@ -1,0 +1,10 @@
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    background-color:green;
+    border: 2px solid red;
+    border-radius: 6px;
+    padding:20px;
+    cursor:pointer;
+
+}

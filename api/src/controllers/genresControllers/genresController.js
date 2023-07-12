@@ -13,15 +13,14 @@ const getGenresController = async (req, res) => {
       const response = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
       
       const genresData = response.data.results; // Acceder a la propiedad results de response.data
-      const genres = genresData.map(item => {return ({id:item.id,name:item.name})
+      const genres = genresData.map(item => {return ({name:item.name})
         });
       console.log(genres);
       await Genres.bulkCreate(genres);
-      
+         //const genresJSON = localGenres.map((genre) => genre.toJSON()).reverse()
+      res.status(200).json(genres)
     } 
-    const genresJSON = localGenres.map((genre) => genre.toJSON()).reverse()
-    res.status(200).json(genresJSON)
-    
+     
   } catch (error) {
     res.status(400).json(error.message);
   }

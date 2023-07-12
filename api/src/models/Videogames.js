@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
       primaryKey:true,
       allowNull:false,
     },
-    idApi:{
-      type:DataTypes.INTEGER,
-      allowNull:false,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,7 +26,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     launchDate:{
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     rating:{
