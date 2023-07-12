@@ -4,8 +4,7 @@ import Navbar from '../../components/navbar/navbar.component';
 
 function Home(){
     return(
-        <div>
-            <p>Esta es la home</p>
+        <div id='homeContainer'>
             <Navbar></Navbar>
             <Cards></Cards>
         </div>

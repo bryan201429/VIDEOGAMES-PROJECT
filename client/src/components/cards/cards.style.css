@@ -1,11 +1,16 @@
-.cardsOrder{
+.cardsContainer{
     background-color: red;
-    display: flex;
-    flex-direction: row;
-    background-color:blue;
-    border: 2px solid red;
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:50px;
+    background-color: rgba(20,20, 20, 0.2);
+    border: 2px solid white;
     border-radius: 6px;
     padding:20px;
     cursor:pointer;
+    justify-content: space-around;
 
 }

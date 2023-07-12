@@ -2,8 +2,13 @@ import './navbar.style.css'
 
 function Navbar (){
 return(
-    <div>
-        <p>Esta es la Navbar</p>
+    <div id='Bar'>
+        <div className='seatchBox'>
+            <form>
+                <input placeholder='Busqueda'></input>
+                <button>Search</button>
+            </form>
+        </div>
     </div>
 
 )

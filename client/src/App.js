@@ -1,4 +1,3 @@
-import './App.css';
 //import {useNavigate, Route, Routes,useLocation} from 'react-router-dom';
 import {Route, BrowserRouter} from 'react-router-dom';
 import Home from '../src/views/home/home.component';

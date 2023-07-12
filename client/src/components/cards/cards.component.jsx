@@ -3,8 +3,8 @@ import Card from '../card/card.component'
 
 function Cards (){
 return(
-    <div className='cardsOrder'>
-        <p>Esta es la cards</p>
+    <div className='cardsContainer'>
+        <Card></Card>
         <Card></Card>
         <Card></Card>
         <Card></Card>
