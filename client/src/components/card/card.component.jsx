@@ -1,17 +1,19 @@
 import './card.style.css';
 
-function Card (){
-return(
-    <div className='cardContainer'>
-        <h2>Name: </h2>
-        <p>image: </p>
-        <p>Description:</p>
-        <p>Platforms:</p>
-        <p>Release date:</p>
+function Card ({game}){                 
+    console.log(game);
+    return(
+        <div className='cardContainer'>
+            <img src={game.background_image}></img>
+            <h2>{game.name}</h2>
+            {game.description &&<p>Description:{game.description}</p>}
+            {/* <p>Platforms:{game.platforms}</p> */}
+            <p>Rating: {game.rating}</p>
+            <p>Release date: {game.released}</p>
 
-    </div>
+        </div>
 
-)
+    )
 }
 
 export default Card;

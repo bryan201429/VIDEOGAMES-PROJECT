@@ -9,6 +9,12 @@
     cursor:pointer;
     transform: translateZ(0);
     transition:transform 0.15s ease-out;
+
+}
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 .cardContainer:hover{
     transform: scale(1.1);

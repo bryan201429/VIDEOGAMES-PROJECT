@@ -8,18 +8,15 @@ const getAllVideogamesController= async(req,res)=>{
         console.log('Este es el controller videogamesall')
         const localVideogames= await Videogames.findAll();
         
-        if(!localVideogames.length){
+        //if(!localVideogames.length){
             //console.log('Aun no hay localVideogames')
             let videogames100=[];
-
+            let allVideogames=[];
             for(let i=1;i<=5;i++){
                 const response= await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`)
                 const videogamesData=response.data.results;
-                //console.log(videogamesData);
 
                 videogames=videogamesData.map(game=>{return({
-                    
-                   // id:game.id,
                     name:game.name,
                     description:game.slug,
                     platforms:game.platforms?.map((p)=>p.platform.name),
@@ -31,12 +28,15 @@ const getAllVideogamesController= async(req,res)=>{
                 //videogames100=videogames100.concat(videogames);
                 videogames100.push(...videogames);
             }
-            console.log(videogames100);
-            await Videogames.bulkCreate(videogames100);
-        }
+            //console.log(videogames100);
+            allVideogames=allVideogames.concat(videogames100);
+            allVideogames.push(...localVideogames);
+            console.log(allVideogames);
+            //await Videogames.bulkCreate(videogames100);
+        //}
 
-        const videogamesJSON = localVideogames.map((game) => game.toJSON()).reverse()
-        res.status(200).json(videogamesJSON)
+        //const videogamesJSON = allVideogames.map((game) => game.toJSON()).reverse()
+        res.status(200).json(allVideogames)
 
     } catch (error) {
         res.status(400).json(error.message)
