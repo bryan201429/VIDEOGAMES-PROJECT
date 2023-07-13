@@ -7,7 +7,7 @@ const { Op } = require('sequelize');
 const getVideogamesByName = async(req,res)=>{
     console.log('Route getByName');
     const {name}=req.query
-    //console.log("el name es:",name);
+    console.log("el name es:",name);
     try {
         
         const dbResponse = await Videogames.findAll({
@@ -23,7 +23,7 @@ const getVideogamesByName = async(req,res)=>{
         const videogame=apiRes.map(game=>{return({
             id:game.id,
             name:game.name,
-            description:game.description? game.description:'Sin descripcion',
+            description:game.description? game.description:'',
             platforms:game.platforms.map((p)=>p.platform.name),
             image:game.background_image,
             launchDate:game.released,
