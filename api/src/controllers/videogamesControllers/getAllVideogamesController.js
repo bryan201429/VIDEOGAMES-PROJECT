@@ -17,6 +17,7 @@ const getAllVideogamesController= async(req,res)=>{
                 const videogamesData=response.data.results;
 
                 videogames=videogamesData.map(game=>{return({
+                    id:game.id,
                     name:game.name,
                     description:game.slug,
                     platforms:game.platforms?.map((p)=>p.platform.name),

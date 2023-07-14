@@ -23,7 +23,7 @@ const getVideogamesById = async (req,res)=>{
         let newGame={
             id: gameFoundAPI.data.id,
             name: gameFoundAPI.data.name,
-            background_image: gameFoundAPI.data.background_image,
+            image: gameFoundAPI.data.background_image,
             rating: gameFoundAPI.data.rating,
             platforms: gameFoundAPI.data.platforms?.map(i=>i.platform.name),
             genres:gameFoundAPI.data.genres?.map(i=>i.name),

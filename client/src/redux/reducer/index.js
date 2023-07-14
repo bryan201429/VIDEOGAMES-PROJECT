@@ -1,4 +1,4 @@
-import { GET_BY_NAME, GET_GAMES } from "../actions";
+import { GET_BY_NAME, GET_GAMES, GET_BY_ID } from "../actions";
 
 let initialState = {allGames:[], gamesBackup:[],myGames:[]}
 
@@ -14,7 +14,11 @@ function rootReducer(state = initialState,action){
             return{
                 ...state,
                 allGames:action.payload,
-
+            }
+        case GET_BY_ID:
+            return{
+                ...state,
+                allGames:action.payload
             }
         default:
             return state
