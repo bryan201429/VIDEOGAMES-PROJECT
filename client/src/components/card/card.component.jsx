@@ -11,7 +11,7 @@ function Card ({game}){
                 {game.description &&<p>Description:{game.description}</p>}
                 {/* <p>Platforms:{game.platforms}</p> */}
                 <p>Rating: {game.rating}</p>
-                <p>Release date: {game.launchDate}</p>
+                {/* <p>Release date: {game.launchDate}</p> */}
             </Link>
         </div>
 
