@@ -15,7 +15,7 @@ function Detail(){
         //     clearDetail()
         // })
     },[dispatch])
-    //console.log(allGames)
+
     return(
         <div>
             <p>name: {allGames.name}</p>
