@@ -15,11 +15,14 @@ const getGenresController = async (req, res) => {
       const genresData = response.data.results; // Acceder a la propiedad results de response.data
       const genres = genresData.map(item => {return ({name:item.name})
         });
-      console.log(genres);
+
       await Genres.bulkCreate(genres);
          //const genresJSON = localGenres.map((genre) => genre.toJSON()).reverse()
-      res.status(200).json(genres)
-    } 
+      res.status(200).json(genres);
+    }
+    else{
+      res.status(200).json(localGenres);
+    }
      
   } catch (error) {
     res.status(400).json(error.message);

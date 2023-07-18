@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import {useDispatch,useSelector} from "react-redux";
 import { getByName, getGames } from '../../redux/actions/index';
 import { useState } from 'react';
+import Filters from '../../components/filters/filters.component';
 
 function Home(){
     const dispatch = useDispatch()                          // Permite enviar actions al Redux
@@ -23,9 +24,6 @@ function Home(){
         e.preventDefault();  
         dispatch(getByName(searchString));
     }
-
-
-
 
     //*Filtro sobre el estado
     // let [filtered, setFiltered] = useState(allGames);     //?Creo un Estado LOCAL, incialmente se le asigna allGames como valor 
@@ -49,10 +47,11 @@ function Home(){
         //     clearDetail()
         // })
     },[dispatch])
-
+    console.log('JUEGOS ENTRANTES A HOME',allGames);
     return(
         <div id='homeContainer'>
             <Navbar handleChange={handleChange} handleSubmit={handleSubmit}></Navbar>
+            <Filters games={allGames}></Filters>
             <Cards allGames={allGames}></Cards>             
         </div>
     )

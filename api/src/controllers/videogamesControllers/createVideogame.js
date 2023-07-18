@@ -28,7 +28,7 @@ const createVideogame = async (req,res)=>{
            else {throw Error('Try with another Genre')};
             
         });
-        res.status(200).json("go")
+        res.status(200).json(newGame);
     } catch (error) {
         res.status(400).json(error.message);
     }

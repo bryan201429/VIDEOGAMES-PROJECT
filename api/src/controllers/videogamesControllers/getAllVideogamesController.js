@@ -29,9 +29,16 @@ const getAllVideogamesController= async(req,res)=>{
                 //videogames100=videogames100.concat(videogames);
                 videogames100.push(...videogames);
             }
+
             //console.log(videogames100);
+            
             allVideogames=allVideogames.concat(videogames100);
             allVideogames.push(...localVideogames);
+            const responseData={
+             allVideogames:allVideogames,
+             localVideogames:localVideogames,   
+            };
+
             console.log(allVideogames);
             //await Videogames.bulkCreate(videogames100);
         //}
