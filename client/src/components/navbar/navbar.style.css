@@ -1,11 +1,14 @@
-#Bar{
+#Bar {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 0, 0, 0.8);
-    margin-top:0%;
-    border-bottom: 2px solid rgb(255, 68, 0);
+    background-color: rgba(50, 50, 50, 0.6);
+    margin-top: 0%;
+    border-bottom: 2px solid rgb(255, 255, 255);
     width: 100vw;
-}
+    box-shadow: inset 0px -5px 10px rgba(255, 136, 0, 0.8);
+  }
+  
+  
 .searchBox{
     border: none;
     outline: none;
@@ -13,4 +16,22 @@
     width: 200px;
     line-height: 30px;
     margin-bottom: 20px;
+}
+
+.navButton{
+    width: 150px; /* Ancho del botón */
+    height: 100%; /* Altura del botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    background-color: rgba(50, 50, 50, 0);
+    color: white;
+    border-width: 2px;
+    border-color: black;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    border-right-color:white ;
+}
+.navButton:hover{
+    background-color: rgba(50, 50, 50,0.8);
+
 }

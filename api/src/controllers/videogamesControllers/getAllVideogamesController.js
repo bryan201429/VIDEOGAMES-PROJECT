@@ -1,15 +1,27 @@
 require('dotenv').config();
 const {API_KEY} = process.env;
 const axios = require('axios');
-const {Videogames} =require('../../db')     //! Model Videogames
+const {Videogames,Genres} =require('../../db')     //! Model Videogames
 
 const getAllVideogamesController= async(req,res)=>{
     try {
         console.log('Este es el controller videogamesall')
-        const localVideogames= await Videogames.findAll();
+        const localVideogames= await Videogames.findAll({
+            include:[{
+                model:Genres,
+                attributes: ['name'],
+                through: { attributes: [] },
+
+            }]
+        });
         
-        //if(!localVideogames.length){
-            //console.log('Aun no hay localVideogames')
+        const localVideogamesdATA=localVideogames.map((game) => {
+            return {
+              ...game.dataValues, // Obtener solo los datos del videojuego sin información adicional
+              genres: game.genres?.map((genre) => genre.name), // Obtener solo los nombres de los géneros asociados
+            };
+          });
+
             let videogames100=[];
             let allVideogames=[];
             for(let i=1;i<=5;i++){
@@ -24,24 +36,24 @@ const getAllVideogamesController= async(req,res)=>{
                     image:game.background_image,
                     launchDate:game.released,
                     rating:game.rating,
+                    genres:game.genres?.map((g)=>g.name)
                     })} 
                 );
-                //videogames100=videogames100.concat(videogames);
                 videogames100.push(...videogames);
             }
 
-            //console.log(videogames100);
-            
-            allVideogames=allVideogames.concat(videogames100);
-            allVideogames.push(...localVideogames);
-            const responseData={
-             allVideogames:allVideogames,
-             localVideogames:localVideogames,   
-            };
+            console.log('Estos son los JUEGOS LOCALES: ',localVideogamesdATA);
+            // allVideogames=allVideogames.concat(videogames100);
+            // allVideogames.push(...localVideogamesdATA);
+            allVideogames=allVideogames.concat(localVideogamesdATA);
+            allVideogames.push(...videogames100);
 
-            console.log(allVideogames);
-            //await Videogames.bulkCreate(videogames100);
-        //}
+            // const responseData={
+            //  allVideogames:allVideogames,
+            //  localVideogames:localVideogames,   
+            // };
+
+            
 
         //const videogamesJSON = allVideogames.map((game) => game.toJSON()).reverse()
         res.status(200).json(allVideogames)

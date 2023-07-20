@@ -5,12 +5,12 @@ export const GET_BY_NAME='GET_BY_NAME';
 export const GET_BY_ID='GET_BY_ID';
 export const POST_GAME='POST_GAME';
 export const FILTER_BY_CREATION='FILTER_BY_CREATION';
-
+export const SORT_ALFA='SORT_ALFA';
+export const FILTER_GENRES='FILTER_GENRES';
 
 export function getGames(){
     return async function(dispatch){
         const response = await axios.get(`http://localhost:3001/videogames/`)
-        //console.log(response.data)
         return dispatch({
             type:"GET_GAMES",
             payload:response.data
@@ -23,7 +23,7 @@ export function getByName(name){
         const response = await axios(`http://localhost:3001/videogames/name?name="${name}"`);
         console.log('La respuesta de getByName:', response.data)
         return dispatch({
-            type:"GET_BY_NAME",
+            type:"GET_BY_NAME", 
             payload:response.data
         }) 
     }
@@ -54,13 +54,30 @@ export function postGame(game){
 
 export function filterByCreation(origin){
     return async function(dispatch){
-        
-        console.log('Estamos en el filterByCreation',origin);
-        
+        console.log('filterByCreation',origin);
         return dispatch({
             type:"FILTER_BY_CREATION",
             payload:origin
         })
     }
+}
 
+export function sortAlfa(alfaOrder){
+    return async function(dispatch){
+        console.log('sortAlfa:',alfaOrder);
+        return dispatch({
+            type:"SORT_ALFA",
+            payload:alfaOrder
+        })
+    }
+}
+
+export function filterByGenres(genre){
+    return async function(dispatch){
+        console.log('Ejecuntado filterByGenres: ',genre)
+        return dispatch({
+            type:"FILTER_GENRES",
+            payload:genre
+        })
+    }
 }

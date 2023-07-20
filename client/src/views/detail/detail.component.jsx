@@ -3,6 +3,7 @@ import {useDispatch,useSelector} from "react-redux";
 import {getByID} from '../../redux/actions/index';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './detail.style.css';
+import Navbar from '../../components/navbar/navbar.component';
 
 function Detail(){
     const {id}=useParams();
@@ -18,13 +19,13 @@ function Detail(){
 
     return(
         <div>
+            <Navbar></Navbar>
             <p>name: {allGames.name}</p>
             <p>description: {allGames.description}</p>
             <p>platforms: {allGames.platforms}</p>
             <img src={allGames.image}/>
             <p>launchDate: {allGames.launchDate}</p>
             <p>rating: {allGames.rating}</p>
- 
         </div>
     )
 }

@@ -5,7 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: blue;
+    
   }
   
 #homeContainer{
@@ -15,6 +15,12 @@ body {
     width: 100%;
     height: 100vh;
     margin:0;
-
-      
+}
+#videoback{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

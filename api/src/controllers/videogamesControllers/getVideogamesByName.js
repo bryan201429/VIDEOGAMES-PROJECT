@@ -40,12 +40,12 @@ const getVideogamesByName = async(req,res)=>{
         console.log('Juegos locales:',localGames)
  
         
-        let responseData={
-            allVideogames:Games15,
-            localVideogames:localGames   
-           };
-        console.log('TODOS LOS JUEGOS(DB+API):',responseData)
-            if(Games15.length!==0)res.status(200).json(responseData);
+        // let responseData={
+        //     allVideogames:Games15,
+        //     localVideogames:localGames   
+        //    };
+        console.log('TODOS LOS JUEGOS(DB+API):',Games15)
+            if(Games15.length!==0)res.status(200).json(Games15);
             else throw Error('404: Game not found')
 
     } catch (error) {
