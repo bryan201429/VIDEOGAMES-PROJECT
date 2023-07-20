@@ -6,6 +6,8 @@ import Filters from '../../components/filters/filters.component';
 import Cards from '../../components/cards/cards.component';
 import Navbar from '../../components/navbar/navbar.component';
 import Pagination from '../../components/pagination/pagination';
+import backGroundVideoHome from '../../assets/mountains.mp4'
+
 function Home() {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.allGames);
@@ -43,13 +45,11 @@ function Home() {
         
         <Navbar handleChange={handleChange} handleSubmit={handleSubmit}></Navbar>
         <Filters games={gamesFiltered}></Filters>
+        <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
         <Cards allGames={currentGames}></Cards>
-        <Pagination
-            gamesPerPage={gamesPerPage}
-            totalGames={gamesFiltered.length}
-            paginate={paginate}
-        />
-        <video id='videoback' onloadedmetada="this.muted=true" autoplay loop> <source src="./Grid.mp4" type="video/mp4"/></video>
+        <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
+        
+        <video id='videoback' muted autoPlay loop> <source src={backGroundVideoHome} type="video/mp4"/></video>
     </div>
   );
 }

@@ -1,16 +1,15 @@
 .cardsContainer{
     background-color: red;
-    width: 85vw;
+    width: 95vw;
     margin: 0 auto;
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap:50px;
-    background-color: rgba(20,20, 20, 0.2);
-    border: 2px solid white;
+    background-color: rgba(20,20, 20, 0);
+    border: 0px;
     border-radius: 6px;
     padding:20px;
-    cursor:pointer;
     justify-content: space-around;
 
 }
