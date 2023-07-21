@@ -1,6 +1,6 @@
 import React from 'react';
 import './pagination.style.css'
-const Pagination = ({ gamesPerPage, totalGames, currentPage, paginate }) => {
+const Pagination = ({ gamesPerPage, totalGames, currentPage, paginate }) => {           //!Numero de juegos por página, total de juegos, pagina actual, callback cuando cambiamos de pagina
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalGames / gamesPerPage); i++) {
@@ -8,7 +8,7 @@ const Pagination = ({ gamesPerPage, totalGames, currentPage, paginate }) => {
   }
 
   return (
-    <nav>
+    <nav>             
       <ul className='pagination'>
         {pageNumbers.map((number) => (
           <li key={number} className='page-item'

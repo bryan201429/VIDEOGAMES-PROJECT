@@ -40,6 +40,7 @@ function Form() {
   const dispatch = useDispatch()   
   const myGames=useSelector((state)=>state.myGames); 
   const allGames = useSelector((state)=>state.allGames);
+  const [showAlert, setShowAlert] = useState(false);                              //! Estado local para mostrar alert al enviar el juego
 
   const [input, setInput] = useState({
     name: "",
@@ -61,35 +62,35 @@ function Form() {
     genres: "",
   });
 
-  const validateData = (input) => {
+  const validateData = (input) => {                                               //! Validaciones
     const updatedInputError = { ...inputError };
 
-    if (!urlRegex.test(input.image)) {
+    if (!urlRegex.test(input.image)) {                                            //Validacion de imagen
       updatedInputError.image = 'URL inválida';
     } else {
       updatedInputError.image = '';
     }
     if (!ratingRegex.test(input.rating)) {
-      updatedInputError.rating = 'Ingrese un número válido';
+      updatedInputError.rating = 'Ingrese un número válido';                     //Validacion de rating
     } else {
       updatedInputError.rating = '';
     }
-    if (!dateRegex.test(input.launchDate)) {
+    if (!dateRegex.test(input.launchDate)) {                                     //Validacion de fecha
       updatedInputError.launchDate = 'Ingrese una fecha válida (dd-mm-aaaa)';
     } else {
       updatedInputError.launchDate = '';
     }
-    if (!voidRegex.test(input.name)) {
+    if (!voidRegex.test(input.name)) {                                           //Validacion de nombre
       updatedInputError.name = 'El campo no puede estar vacío';
     } else {
       updatedInputError.name = '';
     }
-    if (!voidRegex.test(input.description)) {
+    if (!voidRegex.test(input.description)) {                                    //Validacion de descripcion
       updatedInputError.description = 'El campo no puede estar vacío';
     } else {
       updatedInputError.description = '';
     }
-    if (input.platforms.length === 0) {
+    if (input.platforms.length === 0) {                                          //Validacion de plataformas
       updatedInputError.platforms = 'Seleccione al menos una plataforma';
     } else {
       updatedInputError.platforms = '';
@@ -124,9 +125,20 @@ function Form() {
 
   function handleSubmit(e){
       e.preventDefault();
-      dispatch(postGame(input))  //!Ejecuta la action dispatch
-      console.log(allGames);
-  }
+      validateData(input); // Validar los datos antes de enviar
+          
+      const hasErrors = Object.values(inputError).some((error) => error); // Verificar si hay errores en el inputError
+    
+      if (!hasErrors) {
+        dispatch(postGame(input)); //!Ejecuta la action dispatch
+        setShowAlert(true); // Mostrar el alert
+        console.log('JUEGO ENVIADO')
+      } else {
+        setShowAlert(false); 
+      }
+    }
+      
+  
 
   useEffect(()=>{
     
@@ -209,7 +221,7 @@ function Form() {
           </div>
           {inputError.name || inputError.image ? null : <button type='submit' className='buttonSubmit'>Submit</button>}
         </form>
-
+        {showAlert && <div className="alert">¡El juego se ha enviado correctamente!</div>}
         <video id='videoback' muted autoPlay loop> <source src={backGroundVideoHome} type="video/mp4"/></video>
     </div>
   );

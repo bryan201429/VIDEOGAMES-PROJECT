@@ -1,3 +1,4 @@
+
 #backgroundVideo{
     position: absolute;
     top:0;
@@ -6,4 +7,73 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+  }
+
+  .landPage{
+    display: flex;
+    flex-direction: row ;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    justify-content: end;
+  }
+
+  .box{
+    height: 100%;
+    width: 30%;
+    background-color: rgba(20, 20, 20, 0.9);
+    border-left: 2px red solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.4s ease-in-out, background-color 0.4s,  border-left 0.6s;
+  }
+  .box:hover{
+    box-shadow: 5px 5px 40px rgb(255, 0, 0), 
+    -5px -5px 40px rgb(255, 0, 0),
+      -5px 5px 40px rgb(255, 0, 0),
+      5px -5px 40px rgb(255, 0, 0);
+      border-left: white 2px solid;
+  }
+  .AccessContainer{
+    height: 5%;
+    width: 70%;
+    
+  }
+  #Access{
+    width: 100%;
+    margin-top: 20%;
+    border: 0px;
+    background-color: red;
+    height: 100%;
+    color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5vw;
+    cursor: pointer;
+    transition: box-shadow 0.4s ease-in-out, background-color 0.6s, transform 0.6s;
+    border-radius: 10px;
+  }
+  #Access:active{
+    background-color: black;
+    border: 3px red solid;
+  }
+  #Access:hover{
+    box-shadow: 5px 5px 40px rgb(255, 0, 0), 
+    -5px -5px 40px rgb(255, 0, 0),
+      -5px 5px 40px rgb(255, 0, 0),
+      5px -5px 40px rgb(255, 0, 0);
+  }
+  #description{
+    margin-top: 20%;
+    font-size: 2vw;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  #welcome{
+    color: red;
+    font-size: 4vw;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 20%;
   }

@@ -16,14 +16,13 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const gamesPerPage = 15;
 
-  //*Filtro con la BD
 
-  function handleChange(e) {
+  function handleChange(e) {                                  //Handle para cambios en el input search                                                     
     e.preventDefault();
     setSearchString(e.target.value);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e) {                                  //Envia la action para obtener los datos desde el BackEnd
     e.preventDefault();
     dispatch(getByName(searchString));
   }
@@ -32,10 +31,10 @@ function Home() {
     dispatch(getGames());
   }, [dispatch]);
 
-  // Lógica para paginado
+  //! Lógica para paginado
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-  const currentGames = gamesFiltered.slice(indexOfFirstGame, indexOfLastGame);
+  const currentGames = gamesFiltered.slice(indexOfFirstGame, indexOfLastGame);                                    // Seccionado de juegos por página
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -45,7 +44,7 @@ function Home() {
         
         <Navbar handleChange={handleChange} handleSubmit={handleSubmit}></Navbar>
         <Filters games={gamesFiltered}></Filters>
-        <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
+        <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>             
         <Cards allGames={currentGames}></Cards>
         <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
         <video id='videoback' muted autoPlay loop> <source src={backGroundVideoHome} type="video/mp4"/></video>

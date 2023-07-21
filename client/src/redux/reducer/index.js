@@ -74,12 +74,15 @@ function rootReducer(state = initialState, action) {
         }
         return false;
       });
+      if(action.payload==='All Genres'){
+        filteredGamesByGenres=allGamesGenre;
+      }
 
-      // Combine results from creation filter and genre filter
-      if (state.gamesFiltered.length > 0) {
-        filteredGamesByGenres = filteredGamesByGenres.filter((game) =>
-          state.gamesFiltered.includes(game)
+      else {if (state.gamesFiltered.length > 0) {
+            filteredGamesByGenres = filteredGamesByGenres.filter((game) =>
+              state.gamesFiltered.includes(game)
         );
+        }
       }
 
       return {

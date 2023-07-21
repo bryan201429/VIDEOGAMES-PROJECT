@@ -4,7 +4,8 @@ import {getByID} from '../../redux/actions/index';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './detail.style.css';
 import Navbar from '../../components/navbar/navbar.component';
-import backGroundVideoHome from '../../assets/mountains.mp4'
+import backGroundVideoHome from '../../assets/mountains.mp4';
+
 
 function Detail(){
     const {id}=useParams();
