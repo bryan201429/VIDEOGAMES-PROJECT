@@ -4,11 +4,12 @@ import {getByID} from '../../redux/actions/index';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './detail.style.css';
 import Navbar from '../../components/navbar/navbar.component';
+import backGroundVideoHome from '../../assets/mountains.mp4'
 
 function Detail(){
     const {id}=useParams();
     const dispatch = useDispatch()                          // Permite enviar actions al Redux
-    const allGames = useSelector((state)=>state.allGames);  // Accedo al estado y me suscribo a sus cambios, especifico a que parte del estado accederé
+    const allGames = useSelector((state)=>state.myGames);  // Accedo al estado y me suscribo a sus cambios, especifico a que parte del estado accederé
 
     useEffect(()=>{
         dispatch(getByID(id));                                //Envía la action a través del dispatch al reducer
@@ -16,16 +17,25 @@ function Detail(){
         //     clearDetail()
         // })
     },[dispatch])
-
+    // const descript=[...allGames.description]
+    //const descripta=descript.replace(/<[^>]+>/g, '');
+    //let platformsString = allGames.platforms.join(', ');
+    console.log('Este es el game en el Detail',allGames)
     return(
-        <div>
+        <div className='all'> 
             <Navbar></Navbar>
-            <p>name: {allGames.name}</p>
-            <p>description: {allGames.description}</p>
-            <p>platforms: {allGames.platforms}</p>
-            <img src={allGames.image}/>
-            <p>launchDate: {allGames.launchDate}</p>
-            <p>rating: {allGames.rating}</p>
+            <div className='containerDetail'>
+                <div className='imgContainerDetail'> <img src={allGames.image} id='detailImg'/></div>
+                <div className='detailsContainer'>
+                    {<h1>{allGames.name}</h1>}
+                    <p>DESCRIPTION: {allGames.description}</p>
+                    <p>PLATFORM: {allGames.platforms}</p>
+                    <p>LAUNCHDATE: {allGames.launchDate}</p>
+                    <p>RATING: {allGames.rating}</p>
+                    {/* <p>GENRES: {allGames.genres}</p> */}
+                </div>
+            </div>
+            <video id='videoback' muted autoPlay loop> <source src={backGroundVideoHome} type="video/mp4"/></video>
         </div>
     )
 }

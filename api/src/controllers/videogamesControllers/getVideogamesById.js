@@ -9,13 +9,22 @@ const getVideogamesById = async (req,res)=>{
     const regexUUID =/^[0-9a-f]{8}-[0-9a-f]{4}-[4|5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     let gameFound=[];
     
-    if(regexUUID.test(idVideogame)){        //Verifica si es un UUID con el regex 
-        gameFound = await Videogames.findByPk(idVideogame,{
-            include: { model: Genres, through: { attributes: [] } }
-          });
-        gameFound=gameFound;
-        console.log(gameFound);   
-    }
+    if (regexUUID.test(idVideogame)) {
+        gameFound = await Videogames.findByPk(idVideogame, {
+          include: [{
+            model: Genres,
+            attributes: ['name'],
+            through: { attributes: [] },
+          }]
+        });
+      
+        
+          gameFound.genres = gameFound.genres.map((genre) => genre.name);
+        
+      
+        console.log('ESTE ES EL GAME ENCONTRADO EN DB', gameFound);
+      }
+      
     else{
 
         let gameFoundAPI= await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`);
@@ -28,8 +37,12 @@ const getVideogamesById = async (req,res)=>{
             platforms: gameFoundAPI.data.platforms?.map(i=>i.platform.name),
             genres:gameFoundAPI.data.genres?.map(i=>i.name),
             description:gameFoundAPI.data.description,
+            launchDate:gameFoundAPI.data.released,
         }
         gameFound=newGame;
+
+
+
         console.log(gameFound);
     } 
 

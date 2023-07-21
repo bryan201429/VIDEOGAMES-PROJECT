@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './pagination.style.css'
 const Pagination = ({ gamesPerPage, totalGames, currentPage, paginate }) => {
   const pageNumbers = [];
 
@@ -11,18 +11,15 @@ const Pagination = ({ gamesPerPage, totalGames, currentPage, paginate }) => {
     <nav>
       <ul className='pagination'>
         {pageNumbers.map((number) => (
-          <li key={number} className='page-item'>
-            {/* Utilizamos el método preventDefault para evitar que la URL cambie */}
-            <a
-              onClick={(e) => {
-                e.preventDefault();
-                paginate(number);
-              }}
-              href='!#'
-              className={number === currentPage ? 'page-link active' : 'page-link'}
-            >
+          <li key={number} className='page-item'
+          onClick={(e) => {
+            e.preventDefault();                                                   //Evita que se refresque la página
+            paginate(number);
+          }}
+          href='!#'
+          //className={number === currentPage ? 'page-link active' : 'page-link'}
+          >
               {number}
-            </a>
           </li>
         ))}
       </ul>

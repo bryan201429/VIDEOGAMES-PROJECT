@@ -18,7 +18,7 @@ function Card ({game}){
            const height = cartaElement.clientHeight;
            const yRotation = ((layerX - width / 2) / width) * 30;
            const xRotation = ((layerY - height / 2) / height) * 30;
-           console.log(xRotation,yRotation)
+           //console.log(xRotation,yRotation)
            cartaElement.style.transform = ` scale(1.15, 1.15) perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
         };
         const handleMouseLeave = () => {

@@ -13,7 +13,7 @@
     border-width: 0em;
     border-color: rgba(10, 10, 10, 0.1);
     object-fit: cover;
-    transition: box-shadow 0.3s ease-in-out, background-color 0.6s, transform 0.6s;
+    transition: box-shadow 0.4s ease-in-out, background-color 0.6s, transform 0.6s;
     cursor: pointer;
   }
   
@@ -65,7 +65,9 @@ img {
   .cardContainer:hover {
     transform: scale(1.08);
     background-color: rgba(10, 10, 10, 0.8);
-    box-shadow: 5px 5px 30px rgb(255, 255, 255), -5px -5px 30px rgb(255, 255, 255),
-      -5px 5px 30px rgb(255, 255, 255), 5px -5px 30px rgb(255, 255, 255);
+    box-shadow: 5px 5px 40px rgb(255, 0, 0), 
+    -5px -5px 40px rgb(255, 0, 0),
+      -5px 5px 40px rgb(255, 0, 0),
+      5px -5px 40px rgb(255, 0, 0);
   }
   

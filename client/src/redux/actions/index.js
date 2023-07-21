@@ -31,7 +31,7 @@ export function getByName(name){
 export function getByID(id){
     return async function(dispatch){
         const response=await axios(`http://localhost:3001/videogames/${id}`);
-        //console.log(response.data)
+        console.log('La respuesta de getByID:',response.data)
         return dispatch({
             type:"GET_BY_ID",
             payload:response.data

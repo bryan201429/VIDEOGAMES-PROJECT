@@ -1,0 +1,52 @@
+.filterContainer{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    border: 3px solid;
+    border-radius: 20px;
+    border-color: red;
+}
+.filtersBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(50, 50, 50, 0.7);;
+}
+.filtersBox:hover{
+    background-color: rgba(150, 0, 0, 0.9);;
+}
+
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    margin: 15px;
+    color: white;
+
+}
+.filterNames{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    background-color: rgba(20, 20, 20, 0.9);
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px 0 0 15px;
+    
+}
+#genresFilterBox{
+    border-radius: 0 15px 15px 0;
+}
+
+select{
+    background-color: black;
+    color: white;
+    font-size: larger;
+    border-radius: 5px;
+}

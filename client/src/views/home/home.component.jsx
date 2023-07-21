@@ -5,7 +5,7 @@ import { getByName, getGames } from '../../redux/actions/index';
 import Filters from '../../components/filters/filters.component';
 import Cards from '../../components/cards/cards.component';
 import Navbar from '../../components/navbar/navbar.component';
-import Pagination from '../../components/pagination/pagination';
+import Pagination from '../../components/pagination/pagination.component';
 import backGroundVideoHome from '../../assets/mountains.mp4'
 
 function Home() {
@@ -48,7 +48,6 @@ function Home() {
         <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
         <Cards allGames={currentGames}></Cards>
         <Pagination  gamesPerPage={gamesPerPage} totalGames={gamesFiltered.length} paginate={paginate}/>
-        
         <video id='videoback' muted autoPlay loop> <source src={backGroundVideoHome} type="video/mp4"/></video>
     </div>
   );

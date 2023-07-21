@@ -1,0 +1,35 @@
+.pagination{
+margin: 10px;
+display: flex;
+width: fit-content;
+justify-content: space-around;
+}
+
+ul {
+    list-style: none;
+  }
+
+li{
+    margin: 20px;
+    border: 2px solid rgba(200, 0, 0, 1);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(30, 30, 30, 0.5);
+    cursor: pointer;
+    color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    width: 1.5vw;
+    display: flex;
+    justify-content: center;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.6s, transform 0.6s;
+}
+li:hover {
+    transform: scale(1.08);
+    background-color: rgba(10, 10, 10, 0.8);
+    box-shadow: 5px 5px 10px rgb(255, 0, 0), 
+    -5px -5px 10px rgb(255, 0, 0),
+      -5px 5px 10px rgb(255, 0, 0),
+      5px -5px 10px rgb(255, 0, 0);
+  }
+  
