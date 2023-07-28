@@ -125,8 +125,10 @@ function Form() {
 
   function handleSubmit(e){
       e.preventDefault();
+      // dispatch(postGame(input))  
       validateData(input); // Validar los datos antes de enviar
-          
+    
+      
       const hasErrors = Object.values(inputError).some((error) => error); // Verificar si hay errores en el inputError
     
       if (!hasErrors) {

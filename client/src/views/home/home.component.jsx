@@ -32,8 +32,8 @@ function Home() {
   }, [dispatch]);
 
   //! Lógica para paginado
-  const indexOfLastGame = currentPage * gamesPerPage;
-  const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+  const indexOfLastGame = currentPage * gamesPerPage;                                                             //Obtiene el index del ultimo juego p/pagina
+  const indexOfFirstGame = indexOfLastGame - gamesPerPage;                                                        //Obtiene el index del primer juego p/pagina
   const currentGames = gamesFiltered.slice(indexOfFirstGame, indexOfLastGame);                                    // Seccionado de juegos por página
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

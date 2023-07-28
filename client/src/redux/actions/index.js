@@ -41,14 +41,22 @@ export function getByID(id){
 
 export function postGame(game){
     return async function(dispatch){
-        const genres=await axios.get(`http://localhost:3001/genres`)
-        console.log(genres);
-        const response=await axios.post(`http://localhost:3001/videogames/`,game);
-        console.log('Respuesta',response.data);
+       
+        try {
+            const genres=await axios.get(`http://localhost:3001/genres`)
+            console.log(genres);
+            const response=await axios.post(`http://localhost:3001/videogames/`,game);
+            
+            alert(`Juego creado con exito: ${response.data.name}`)
+            console.log('Respuesta',response.data);
+        
         return dispatch({
             type:"POST_GAME",
             payload:response.data
         }) 
+    } catch (error) {
+        alert('No se puedo crear el juego');
+    }
     }
 }
 
